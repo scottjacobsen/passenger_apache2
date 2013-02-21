@@ -29,8 +29,10 @@ when 'source'
   include_recipe 'passenger_apache2::source'
 when 'package'
   include_recipe 'passenger_apache2::package'
+when 'rvm'
+  include_recipe 'passenger_apache2::rvm'
 else
-  raise "Unsupported passenger installation method requested: #{node['passenger']['install_method']}. Supported: source or package."
+  raise "Unsupported passenger installation method requested: #{node['passenger']['install_method']}. Supported: source, package or rvm."
 end
 
 if(node['passenger']['manage_module_conf'])

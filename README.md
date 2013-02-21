@@ -18,6 +18,9 @@ Tested on the following platforms:
 The source install method was used on CentOS. It may work on other
 platforms with or without modification.
 
+The RVM install method was tested on Ubuntu 12.04 for a single-user
+style RVM install.
+
 ## Cookbooks
 
 Opscode cookbooks:
@@ -84,6 +87,25 @@ value for your system's available package repository, or delete the
 attribute and use the latest available with:
 
     node.set['passenger']['package'].delete('version')
+
+## RVM
+
+Installs passenger in a single-user RVM environment.
+
+Set the `install_method` attribute to rvm, then set the following
+attributes:
+
+* `node['passenger']['rvm']['user']` must be set to the user where the
+  RVM environment is installed.
+
+* `node['passenger']['rvm']['ruby_string']` defaults to
+  `node['rvm']['user_default_ruby']`. That value is probably set if
+  you are using https://github.com/fnichol/chef-rvm. If not it must be
+  set to an RVM version string such as `1.9.3-p385`.
+
+There are other `node['passenger']['rvm']` attributes in the
+attributes/default.rb file. The are all set to sane defaults, but can
+be overridden.
 
 Usage
 =====
