@@ -56,6 +56,24 @@ Set the `install_method` attribute to package, then set the `package['name']` at
 
 Set the `node['passenger']['package']['version']` attribute to the correct value for your system's available package repository if necessary. By default the value is nil which will install the latest package version from the distribution package manager.
 
+## RVM
+
+Installs passenger in a single-user RVM environment.
+
+Set the `install_method` attribute to rvm, then set the following
+attributes:
+
+* `node['passenger']['rvm']['user']` must be set to the user where the
+  RVM environment is installed.
+
+* `node['passenger']['rvm']['ruby_string']` defaults to
+  `node['rvm']['user_default_ruby']`. That value is probably set if
+  you are using https://github.com/fnichol/chef-rvm. If not it must be
+  set to an RVM version string such as `1.9.3-p385`.
+
+There are other `node['passenger']['rvm']` attributes in the
+attributes/default.rb file. The are all set to sane defaults, but can
+be overridden.
 
 Usage
 -----
