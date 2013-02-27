@@ -12,7 +12,7 @@ default['passenger']['package']['name'] = nil
 default['passenger']['package']['version'] = node['passenger']['version']
 
 default['passenger']['rvm']['user'] = nil
-default['passenger']['rvm']['user_home'] = "#{etc['passwd'][passenger['rvm']['user']]['dir']}"
+default['passenger']['rvm']['user_home'] = nil
 default['passenger']['rvm']['group'] = "#{passenger['rvm']['user']}"
 default['passenger']['rvm']['ruby_string'] = node['rvm']['user_default_ruby']
 default['passenger']['rvm']['root_path'] = "#{passenger['rvm']['user_home']}/.rvm/gems/ruby-#{passenger['rvm']['ruby_string']}/gems/passenger-#{passenger['version']}"
