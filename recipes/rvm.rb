@@ -43,7 +43,7 @@ rvm use #{node['passenger']['rvm']['ruby_string']}
 gem install -v #{node['passenger']['version']} passenger"
   user node['passenger']['rvm']['user']
   group node['passenger']['rvm']['group']
-  creates node['passenger']['rvm']['installer_path']
+  creates node['passenger']['root_path']
   environment({ "HOME" => node['passenger']['rvm']['user_home'] })
 end
 
