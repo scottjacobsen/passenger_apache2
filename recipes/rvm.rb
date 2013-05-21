@@ -27,7 +27,7 @@ end
 node.default['passenger']['apache_mpm']  = 'prefork'
 node.default['passenger']['root_path'] = "#{node['passenger']['rvm']['root_path']}"
 node.default['passenger']['ruby_bin'] = "#{node['passenger']['rvm']['ruby_bin']}"
-node.default['passenger']['module_path'] = #{node['passenger']['rvm']['module_path']}
+node.default['passenger']['module_path'] = "#{node['passenger']['rvm']['module_path']}"
 
 unless(node['passenger']['rvm']['user'])
   raise 'The RVM user must be defined!'
