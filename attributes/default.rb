@@ -19,7 +19,7 @@ default['passenger']['rvm']['ruby_string'] = nil
 default['passenger']['rvm']['group'] = "#{passenger['rvm']['user']}"
 default['passenger']['rvm']['root_path'] = "#{passenger['rvm']['user_home']}/.rvm/gems/ruby-#{passenger['rvm']['ruby_string']}/gems/passenger-#{passenger['version']}"
 
-if passenger['version'] < '4.0.0'
+if node['passenger']['version'] < '4.0.0'
   default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/ext/apache2/mod_passenger.so"
 else
   default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/libout/apache2/mod_passenger.so"
