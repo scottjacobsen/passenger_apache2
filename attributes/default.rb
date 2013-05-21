@@ -18,6 +18,12 @@ default['passenger']['rvm']['user_home'] = nil
 default['passenger']['rvm']['ruby_string'] = nil
 default['passenger']['rvm']['group'] = "#{passenger['rvm']['user']}"
 default['passenger']['rvm']['root_path'] = "#{passenger['rvm']['user_home']}/.rvm/gems/ruby-#{passenger['rvm']['ruby_string']}/gems/passenger-#{passenger['version']}"
-default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/ext/apache2/mod_passenger.so"
+
+if passenger['verssion'] < '4.0.0'
+  default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/ext/apache2/mod_passenger.so"
+else
+  default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/libout/apache2/mod_passenger.so"
+end
+
 default['passenger']['rvm']['installer_path'] = "#{passenger['rvm']['user_home']}/.rvm/gems/ruby-#{passenger['rvm']['ruby_string']}/bin/passenger-install-apache2-module"
 default['passenger']['rvm']['ruby_bin'] = "#{passenger['rvm']['user_home']}/.rvm/wrappers/ruby-#{passenger['rvm']['ruby_string']}/ruby"
