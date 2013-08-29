@@ -21,6 +21,8 @@ default['passenger']['rvm']['root_path'] = "#{passenger['rvm']['user_home']}/.rv
 
 if node['passenger']['version'] < '4.0.0'
   default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/ext/apache2/mod_passenger.so"
+elsif node['passenger']['version'] >= '4.0.14'
+  default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/buildout/apache2/mod_passenger.so"
 else
   default['passenger']['rvm']['module_path'] = "#{passenger['rvm']['root_path']}/libout/apache2/mod_passenger.so"
 end
