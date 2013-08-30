@@ -56,7 +56,7 @@ Set the `install_method` attribute to package, then set the `package['name']` at
 
 Set the `node['passenger']['package']['version']` attribute to the correct value for your system's available package repository if necessary. By default the value is nil which will install the latest package version from the distribution package manager.
 
-## RVM
+### RVM
 
 Installs passenger in a single-user RVM environment.
 
