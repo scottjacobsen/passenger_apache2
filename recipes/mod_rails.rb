@@ -31,6 +31,7 @@ if platform_family?('debian')
     owner 'root'
     group 'root'
     mode 0755
+    notifies :reload, 'service[apache2]'
   end
 end
 
@@ -40,6 +41,7 @@ template "#{node['apache']['dir']}/mods-available/passenger.conf" do
   owner 'root'
   group 'root'
   mode 0644
+  notifies :reload, 'service[apache2]'
 end
 
 apache_module 'passenger' do
